@@ -1,0 +1,6 @@
+# apiVersion: project.openshift.io/v1
+# kind: Project
+# apiVersion: project.openshift.io/v1
+# metadata:
+#   name: {{ include "cluster.name" . }}
+# spec: {}
