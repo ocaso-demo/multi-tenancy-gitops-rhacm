@@ -36,21 +36,21 @@ metadata:
     apps.open-cluster-management.io/reconcile-option: merge
   labels:
     app: install-openshift-gitops
-  name: install-openshift-gitops-subscription-1
+  name: install-openshift-gitops-operator-subscription
   namespace: openshift-operators
 spec:
   channel: multi-tenancy-gitops-channel-ns/multi-tenancy-gitops-channel
   placement:
     placementRef:
       kind: PlacementRule
-      name: install-openshift-gitops-placement-1
+      name: install-openshift-gitops-operator-placement
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
   labels:
     app: install-openshift-gitops
-  name: install-openshift-gitops-placement-1
+  name: install-openshift-gitops-operator-placement
   namespace: openshift-operators
 spec:
   clusterConditions:
@@ -66,21 +66,21 @@ metadata:
     apps.open-cluster-management.io/reconcile-option: merge
   labels:
     app: install-openshift-gitops
-  name: install-openshift-gitops-subscription-2
+  name: install-openshift-gitops-instance-subscription
   namespace: openshift-gitops
 spec:
   channel: multi-tenancy-gitops-channel-ns/multi-tenancy-gitops-channel
   placement:
     placementRef:
       kind: PlacementRule
-      name: install-openshift-gitops-placement-2
+      name: install-openshift-gitops-instance-placement
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
   labels:
     app: install-openshift-gitops
-  name: install-openshift-gitops-placement-2
+  name: install-openshift-gitops-instance-placement
   namespace: openshift-gitops
 spec:
   clusterConditions:
