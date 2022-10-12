@@ -12,7 +12,8 @@ spec:
     vendor: auto-detect
   applicationManager:
     enabled: true
-    argocdCluster: false
+    # Apparently this isnt available in the latest API --> https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.6/html/clusters/cluster-lifecycle-architecture#modifying-the-klusterlet-add-ons-settings-of-your-cluster
+    #argocdCluster: false
   policyController:
     enabled: true
   searchCollector:
