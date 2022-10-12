@@ -8,7 +8,7 @@ metadata:
   namespace: multi-tenancy-gitops-channel-ns
 spec:
   type: Git
-  pathname: 'https://github.com/rhacm-gitops/multi-tenancy-gitops.git'
+  pathname: 'https://github.com/ocaso-demo/multi-tenancy-gitops.git'
 ---
 apiVersion: app.k8s.io/v1beta1
 kind: Application
