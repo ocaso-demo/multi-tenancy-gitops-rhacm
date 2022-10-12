@@ -1,0 +1,23 @@
+apiVersion: agent.open-cluster-management.io/v1
+kind: KlusterletAddonConfig
+metadata:
+  name: {{ include "cluster.name" . }}
+  namespace: {{ include "cluster.name" . }}
+spec:
+  clusterName: {{ include "cluster.name" . }}
+  clusterNamespace: {{ include "cluster.name" . }}
+  clusterLabels:
+    name: {{ include "cluster.name" . }}
+    cloud: auto-detect
+    vendor: auto-detect
+  applicationManager:
+    enabled: true
+    argocdCluster: false
+  policyController:
+    enabled: true
+  searchCollector:
+    enabled: true
+  certPolicyController:
+    enabled: true
+  iamPolicyController:
+    enabled: true
