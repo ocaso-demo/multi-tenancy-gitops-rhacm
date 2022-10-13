@@ -45,4 +45,5 @@
   {{- end -}}
   {{- if eq .Values.cloud.provider "IBM" -}}
     {{ .Values.cloud.provider }}
+  {{- end -}}
 {{- end -}}
