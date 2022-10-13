@@ -31,3 +31,18 @@
     {{- end -}}
   {{- end -}}
 {{- end -}}
+
+{{- define "cluster.vendor" -}}
+  {{- .Values.cluster.vendor | default "OpenShift" -}}
+{{- end -}}
+
+{{- define "metadata.labels.cloud" -}}
+  {{- if eq .Values.cloud.provider "Azure" -}}
+    {{ .Values.cloud.provider }}
+  {{- end -}}
+  {{- if eq .Values.cloud.provider "AWS" -}}
+    Amazon
+  {{- end -}}
+  {{- if eq .Values.cloud.provider "IBM" -}}
+    {{ .Values.cloud.provider }}
+{{- end -}}

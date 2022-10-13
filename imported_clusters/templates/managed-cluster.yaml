@@ -5,8 +5,8 @@ metadata:
   namespace: {{ include "cluster.name" . }}
   labels:
     name: {{ include "cluster.name" . }}
-    cloud: auto-detect
-    vendor: auto-detect
+    cloud: '{{ include "metadata.labels.cloud" . }}'
+    vendor: '{{ include "cluster.vendor" . }}'
   annotations: {}
 spec:
   hubAcceptsClient: true
