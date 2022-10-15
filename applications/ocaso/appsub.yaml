@@ -3,7 +3,7 @@ apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
   name: ocaso-hello-app-rhacm
-  namespace: openshift-gitops
+  namespace: rhacm-apps
 spec:
   componentKinds:
   - group: apps.open-cluster-management.io
@@ -37,7 +37,7 @@ metadata:
   labels:
     app: ocaso-hello-app-rhacm
   name: ocaso-hello-app-rhacm-subscription
-  namespace: openshift-gitops
+  namespace: rhacm-apps
 spec:
   channel: multi-tenancy-gitops-apps-channel-ns/multi-tenancy-gitops-apps-channel
   placement:
@@ -51,7 +51,7 @@ metadata:
   labels:
     app: ocaso-hello-app-rhacm
   name: ocaso-hello-app-rhacm-placement
-  namespace: openshift-gitops
+  namespace: rhacm-apps
 spec:
   clusterSelector:
     matchLabels:
