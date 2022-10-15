@@ -22,7 +22,7 @@ metadata:
   annotations:
     apps.open-cluster-management.io/reconcile-rate: medium
   name: multi-tenancy-gitops-apps-channel
-  namespace: multi-tenancy-gitops-apps-ns
+  namespace: multi-tenancy-gitops-apps-channel-ns
 spec:
   type: Git
   pathname: 'https://github.com/ocaso-demo/multi-tenancy-gitops-apps.git'
@@ -39,7 +39,7 @@ metadata:
   name: ocaso-hello-app-rhacm-subscription
   namespace: openshift-gitops
 spec:
-  channel: multi-tenancy-gitops-apps-ns/multi-tenancy-gitops-apps-channel
+  channel: multi-tenancy-gitops-apps-channel-ns/multi-tenancy-gitops-apps-channel
   placement:
     placementRef:
       kind: PlacementRule
