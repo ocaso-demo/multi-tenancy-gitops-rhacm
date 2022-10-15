@@ -1,0 +1,58 @@
+---
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: ocaso-hello-app-rhacm
+  namespace: openshift-gitops
+spec:
+  componentKinds:
+  - group: apps.open-cluster-management.io
+    kind: Subscription
+  descriptor: {}
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values: 
+          - ocaso-hello-app-rhacm
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: Channel
+metadata:
+  annotations:
+    apps.open-cluster-management.io/reconcile-rate: medium
+  name: multi-tenancy-gitops-apps-channel
+  namespace: multi-tenancy-gitops-apps-ns
+spec:
+  type: Git
+  pathname: 'https://github.com/ocaso-demo/multi-tenancy-gitops-apps.git'
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  annotations:
+    apps.open-cluster-management.io/git-branch: master
+    apps.open-cluster-management.io/git-path: ocaso/environments/rhacm
+    apps.open-cluster-management.io/reconcile-option: merge
+  labels:
+    app: ocaso-hello-app-rhacm
+  name: ocaso-hello-app-rhacm-subscription
+  namespace: openshift-gitops
+spec:
+  channel: multi-tenancy-gitops-apps-ns/multi-tenancy-gitops-apps-channel
+  placement:
+    placementRef:
+      kind: PlacementRule
+      name: ocaso-hello-app-rhacm-placement
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  labels:
+    app: ocaso-hello-app-rhacm
+  name: ocaso-hello-app-rhacm-placement
+  namespace: openshift-gitops
+spec:
+  clusterSelector:
+    matchLabels:
+      'name': 'test-cluster-1'
